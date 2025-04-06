@@ -60,12 +60,6 @@ const Dashboard = () => {
 
   const [totalPortfolioValue, setTotalPortfolioValue] = useState(0);
 
-  // Загрузка данных портфеля
-  useEffect(() => {
-    fetchPortfolio();
-    fetchCoinsData();
-  }, []);
-
   // Фильтрация монет при изменении поиска
   useEffect(() => {
     if (searchQuery.trim() === "") {
@@ -182,6 +176,11 @@ const Dashboard = () => {
       setLoading((prev) => ({ ...prev, coins: false }));
     }
   };
+
+  useEffect(() => {
+    fetchPortfolio();
+    fetchCoinsData();
+  }, []);
 
   // Получение текущей цены
   const getCurrentPrice = async (coinId) => {
