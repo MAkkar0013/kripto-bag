@@ -1,0 +1,633 @@
+body {
+  background-color: #121212;
+}
+
+html {
+  background-color: #121212;
+}
+
+#root {
+  background-color: #121212;
+}
+
+.dashboard-container {
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #121212;
+  color: #ffffff;
+  min-height: 100vh;
+  padding: 20px;
+  width: 100%;
+  margin: 0 auto;
+  position: relative;
+}
+
+.kolvo {
+  border: #aaa 1px solid;
+  padding: 10px 15px;
+  border-radius: 5px;
+  background-color: #121212;
+  color: white;
+}
+
+.kolvo:active {
+  border: #00cc66 1px solid;
+}
+
+.buy-time {
+  color: #aaa;
+  font-size: 0.8rem;
+}
+
+.message {
+  display: inline-block;
+  background-color: #ffc107;
+  border: darkgoldenrod 3px solid;
+  padding: 15px;
+  border-radius: 5px;
+  margin-top: 20px;
+}
+
+/* Шапка */
+.header {
+  text-align: center;
+  margin-bottom: 30px;
+  padding-bottom: 15px;
+  border-bottom: 1px solid #333;
+}
+
+.header h1 {
+  color: #00ff88;
+  font-size: 2.5rem;
+  margin: 0;
+}
+
+/* Основное содержимое */
+.main-content {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+  margin-bottom: 40px;
+}
+
+@media (max-width: 768px) {
+  .main-content {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Секции */
+.portfolio-chart,
+.portfolio-list {
+  background-color: #1e1e1e;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+}
+
+.portfolio-chart h2,
+.portfolio-list h2 {
+  color: #00ff88;
+  margin-top: 0;
+  margin-bottom: 20px;
+  font-size: 1.5rem;
+}
+
+/* График портфеля */
+.chart-container {
+  height: 300px;
+  position: relative;
+}
+
+/* Список монет */
+.coin-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.coin-item {
+  background-color: #2a2a2a;
+  padding: 15px;
+  margin-bottom: 10px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  border-left: 3px solid transparent;
+}
+
+.coin-item:hover {
+  background-color: #333;
+  border-left-color: #00ff88;
+}
+
+.coin-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.coin-name {
+  font-weight: bold;
+  color: #00ff88;
+  font-size: 1.1rem;
+}
+
+.coin-amount {
+  color: #ccc;
+}
+
+.profit-loss {
+  font-weight: bold;
+}
+
+.profit-loss.positive {
+  color: #00ff88;
+}
+
+.profit-loss.negative {
+  color: #ff4444;
+}
+
+.delete-btn {
+  background-color: #ff4444;
+  color: white;
+  border: none;
+  padding: 5px 10px;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.2s;
+  font-size: 0.9rem;
+}
+
+.delete-btn:hover {
+  background-color: #cc0000;
+}
+
+/* Детали монеты */
+.coin-details {
+  background-color: #252525;
+  padding: 15px;
+  margin-top: 5px;
+  border-radius: 0 0 8px 8px;
+  animation: fadeIn 0.3s ease-out;
+}
+
+.coin-info h3 {
+  color: #00ff88;
+  margin-top: 0;
+}
+
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 15px;
+  margin-top: 15px;
+}
+
+.stat-item {
+  background-color: #333;
+  padding: 10px;
+  border-radius: 5px;
+}
+
+.stat-label {
+  display: block;
+  color: #aaa;
+  font-size: 0.9rem;
+}
+
+.stat-value {
+  font-weight: bold;
+  font-size: 1.1rem;
+}
+
+.price-chart {
+  height: 300px;
+  margin-top: 20px;
+  background-color: #252525;
+  padding: 15px;
+  border-radius: 8px;
+}
+
+.price-chart h4 {
+  margin: 0 0 15px 0;
+  color: #00ff88;
+  font-size: 1.1rem;
+  text-align: center;
+}
+
+/* Для мобильных устройств */
+@media (max-width: 768px) {
+  .price-chart {
+    height: 250px;
+  }
+  #root {
+    width: 100%;
+  }
+  .dashboard-container {
+    width: 100%;
+  }
+  .portfolio-chart {
+    width: 95%;
+    margin: 0 auto;
+  }
+  .portfolio-list {
+    width: 95%;
+    margin: 0 auto;
+  }
+}
+
+/* Кнопка добавления */
+.add-btn {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  background-color: #00ff88;
+  color: #121212;
+  font-size: 2rem;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 10px rgba(0, 255, 136, 0.3);
+  transition: all 0.3s ease;
+  z-index: 100;
+}
+
+.add-btn:hover {
+  transform: scale(1.1);
+  box-shadow: 0 6px 15px rgba(0, 255, 136, 0.4);
+}
+
+/* Панель добавления */
+.add-panel {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  width: 350px;
+  max-width: 90vw;
+  background-color: #1e1e1e;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.5);
+  transform: translateX(150%);
+  transition: transform 0.3s ease;
+  z-index: 90;
+}
+
+.add-panel.open {
+  transform: translateX(0);
+  right: 90px;
+}
+
+.close-btn {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  background: none;
+  border: none;
+  color: #aaa;
+  font-size: 1.5rem;
+  cursor: pointer;
+  transition: color 0.2s;
+}
+
+.close-btn:hover {
+  color: #fff;
+}
+
+/* Форма */
+.form-group {
+  margin-bottom: 15px;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 5px;
+  color: #ccc;
+}
+
+.search-container {
+  position: relative;
+}
+
+.search-input {
+  width: 100%;
+  padding: 10px;
+  border-radius: 6px;
+  border: 1px solid #444;
+  background-color: #2a2a2a;
+  color: #fff;
+  font-size: 1rem;
+}
+
+.search-input:focus {
+  outline: none;
+  border-color: #00ff88;
+}
+
+.dropdown-menu {
+  display: block !important;
+  position: absolute;
+  top: 100%;
+  right: 20px;
+  left: 50px;
+  max-height: 300px;
+  overflow-y: auto;
+  background-color: #2a2a2a;
+  border-radius: 0 0 6px 6px;
+  z-index: 100;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+  -ms-overflow-style: none; /* Скрываем scrollbar в IE/Edge */
+  scrollbar-width: none;
+}
+
+.dropdown-menu::-webkit-scrollbar {
+  display: none;
+}
+
+.dropdown-item {
+  padding: 10px 15px;
+  cursor: pointer;
+  transition: background-color 0.2s;
+  border-bottom: 1px solid #333;
+  display: flex;
+  justify-content: space-between;
+}
+
+.dropdown-item:last-child {
+  border-bottom: none;
+}
+
+.dropdown-item:hover {
+  background-color: #333;
+  color: #00ff88;
+}
+
+.coin-symbol {
+  color: #00ff88;
+  font-weight: bold;
+}
+
+.selected-coin-info {
+  background-color: rgba(0, 255, 136, 0.1);
+  padding: 10px;
+  border-radius: 6px;
+  margin-bottom: 15px;
+  border-left: 3px solid #00ff88;
+}
+
+.price-options {
+  margin-bottom: 15px;
+}
+
+.radio-label {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+  cursor: pointer;
+}
+
+.radio-label input {
+  margin-right: 10px;
+  accent-color: #00ff88;
+}
+
+.submit-btn {
+  background-color: #00ff88;
+  color: #121212;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 6px;
+  font-size: 1rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  width: 100%;
+}
+
+.submit-btn:hover {
+  background-color: #00cc66;
+}
+
+.submit-btn:disabled {
+  background-color: #555;
+  cursor: not-allowed;
+}
+
+/* Сообщения */
+.alert {
+  padding: 15px;
+  border-radius: 6px;
+  margin-bottom: 20px;
+  position: relative;
+}
+
+.alert-warning {
+  background-color: rgba(255, 193, 7, 0.2);
+  color: #ffc107;
+  border-left: 3px solid #ffc107;
+}
+
+.close-error {
+  background: none;
+  border: none;
+  color: inherit;
+  position: absolute;
+  top: 5px;
+  right: 10px;
+  font-size: 1.2rem;
+  cursor: pointer;
+}
+
+.loading {
+  text-align: center;
+  padding: 30px;
+  color: #aaa;
+}
+
+.error {
+  color: #ff4444;
+  text-align: center;
+  padding: 15px;
+}
+
+/* Анимации */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Адаптивные стили */
+@media (max-width: 480px) {
+  .coin-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 5px;
+  }
+
+  .stats-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .add-panel.open {
+    right: 20px;
+    bottom: 90px;
+  }
+}
+
+/* Стили для общего баланса */
+.portfolio-summary {
+  background-color: #252525;
+  flex-direction: column;
+  align-items: center;
+  padding: 15px;
+  border-radius: 8px;
+  margin-top: 20px;
+}
+
+.balance {
+  font-size: 1.8rem;
+  font-weight: bold;
+  color: #00ff88;
+  margin: 0 0;
+}
+
+.profit-summary {
+  font-size: 1.1rem;
+}
+
+.profit-summary .positive {
+  color: #00ff88;
+}
+
+.profit-summary .negative {
+  color: #ff4444;
+}
+
+@media (max-width: 768px) {
+  .portfolio-summary {
+    text-align: center;
+  }
+
+  .balance {
+    font-size: 1.5rem;
+  }
+  .main-content {
+    margin: 0 auto;
+  }
+}
+
+/* Стили для статистики */
+.portfolio-stats {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 15px;
+  margin: 20px 0;
+}
+
+.stat-card {
+  background-color: #252525;
+  padding: 15px;
+  border-radius: 8px;
+  text-align: center;
+}
+
+.stat-card h4 {
+  margin: 0 0 10px 0;
+  color: #aaa;
+  font-size: 0.9rem;
+}
+
+.stat-card .stat-value {
+  font-size: 1.3rem;
+  font-weight: bold;
+}
+
+.stat-card .positive {
+  color: #00ff88;
+}
+
+.stat-card .negative {
+  color: #ff4444;
+}
+
+.coin-meta {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  font-size: 0.9rem;
+}
+
+.buy-price {
+  color: #aaa;
+}
+
+.current-price {
+  color: #00ff88;
+  font-weight: bold;
+}
+
+/* Адаптивные стили */
+@media (max-width: 768px) {
+  .coin-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+  }
+
+  .coin-meta {
+    width: 100%;
+    flex-direction: row;
+    justify-content: space-between;
+  }
+
+  .profit-loss {
+    margin-top: 5px;
+  }
+  .app-navigation {
+    margin: 0;
+  }
+}
+
+.coin-stats {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 10px;
+  margin-bottom: 15px;
+}
+
+.stat-row {
+  display: flex;
+  justify-content: space-between;
+  padding: 8px 0;
+  border-bottom: 1px solid #333;
+}
+
+.stat-row span:first-child {
+  color: #aaa;
+}
+
+.stat-value {
+  font-weight: bold;
+}
+
+.stat-value.positive {
+  color: #00ff88;
+}
+
+.stat-value.negative {
+  color: #ff4444;
+}

@@ -1,0 +1,77 @@
+.app-navigation {
+  background-color: #1e1e1e;
+  border-radius: 8px;
+  padding: 20px 15px;
+  position: sticky;
+  left: 0;
+  right: 0;
+  top: 0;
+  z-index: 10000;
+}
+
+.nav-list {
+  display: flex;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  gap: 15px;
+}
+
+.nav-item {
+  margin: 0;
+}
+
+.nav-linki {
+  color: #aaa;
+  text-decoration: none;
+  padding: 8px 12px;
+  border-radius: 4px;
+  transition: all 0.3s ease;
+  font-weight: 500;
+}
+
+.nav-linki:hover {
+  color: #fff;
+  background-color: #333;
+}
+
+.logout-btn {
+  color: #aaa;
+  text-decoration: none;
+  cursor: pointer;
+  padding: 8px 12px;
+  border-radius: 4px;
+  transition: all 0.3s ease;
+  font-weight: 500;
+}
+
+.logout-btn:hover {
+  color: #ff4444;
+  background-color: rgba(255, 68, 68, 0.1);
+}
+
+/* Для мобильных устройств */
+@media (max-width: 768px) {
+  .logout-btn {
+    font-size: 0.9rem;
+  }
+}
+
+.nav-linki.active {
+  color: #00ff88;
+  background-color: rgba(0, 255, 136, 0.1);
+}
+
+/* Адаптивность навигации */
+@media (max-width: 768px) {
+  .nav-list {
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 8px;
+  }
+
+  .nav-link {
+    padding: 6px 10px;
+    font-size: 0.9rem;
+  }
+}
